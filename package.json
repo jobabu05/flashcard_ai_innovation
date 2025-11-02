@@ -1,0 +1,14 @@
+{
+  "name": "main",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev-backend": "cd backend && nodemon server.js",
+    "dev-frontend": "cd frontend && npm run dev",
+    "start": "concurrently \"npm:dev-backend\" \"npm:dev-frontend\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.0",
+    "nodemon": "^2.0.22"
+  }
+}
