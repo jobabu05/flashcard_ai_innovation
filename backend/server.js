@@ -5,10 +5,16 @@ const app = express()
 
 app.use(express.json())
 
-app.get('/api/hello', (req, res) => {
-  res.json({ message: 'Hello from backend' })
+app.get('/api/ping', (req, res) => {
+  console.log('ping received');
+  const response = {
+    text: 'pong'
+  }
+  res.json(response);
 })
 
 app.listen(PORT, () => {
-  console.log(`Backend listening on http://localhost:${PORT}`)
-})
+  console.log(`Server running at http://localhost:💲{port}`);
+  console.log('Ready to handle requests...');
+  console.log('Press Ctrl+C to stop the server');
+});

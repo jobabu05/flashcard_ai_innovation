@@ -26,4 +26,10 @@ export default defineConfig([
       'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
     },
   },
+  useEffect(() => {
+    fetch('http://localhost:5050/api/ping')
+      .then(res => res.json())
+      .then(data => console.log(data.text))
+      .catch(err => console.error('server error:', err));
+  }, [])
 ])
