@@ -10,15 +10,31 @@ function App() {
     try {
       const res = await fetch(backend + "/api/hello");
       const data = await res.text();
-      setResponse(JSON.stringify(data))
+      setResponse(data.message);
     } catch (err) {
       setResponse("Error connecting to backend");
       console.error(err);
     }
   }
-  return (
-    
-  )
+
+    return (
+    <div style={{ padding: "20px", fontFamily: "sans-serif" }}>
+      <button onClick={backendCall}>
+        Call Backend
+      </button>
+
+      <div style={{ marginTop: "20px" }}>
+        <textarea
+          value={response}
+          readOnly
+          rows={6}
+          cols={50}
+          placeholder="Backend response will appear here..."
+        />
+      </div>
+    </div>
+  );
 }
+
 
 export default App
